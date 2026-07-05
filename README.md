@@ -4,7 +4,7 @@ Notes, access details, and helper scripts for my Nabaztag rabbit, revived with
 the open-source [**pynab**](https://github.com/nabaztag2018/pynab) project on a
 Raspberry Pi. It's a Spotify Connect speaker whose ears wiggle to the music.
 
-📖 **Project site:** https://mathemagie.github.io/nabaztag_radio/ — an illustrated
+📖 **Project site:** https://mathemagie.github.io/nabaztag-spotify/ — an illustrated
 walkthrough of how it all works.
 
 ## What's in this repo
