@@ -4,6 +4,9 @@ Notes, access details, and helper scripts for my Nabaztag rabbit, revived with
 the open-source [**pynab**](https://github.com/nabaztag2018/pynab) project on a
 Raspberry Pi. It's a Spotify Connect speaker whose ears wiggle to the music.
 
+📖 **Project site:** https://mathemagie.github.io/nabaztag_radio/ — an illustrated
+walkthrough of how it all works.
+
 ## What's in this repo
 
 | File | Runs on | What it does |
@@ -24,7 +27,6 @@ source-of-truth backup. See each section below for details.
 | **IP address** | `192.168.1.66` (Wi-Fi, on `Livebox-9E45`) |
 | **Hardware** | Raspberry Pi Zero W Rev 1.1 |
 | **OS** | Raspbian GNU/Linux 10 (Buster), kernel 5.10.17+ |
-| **MAC** | `b8:27:eb:b5:3f:df` (Raspberry Pi Foundation) |
 | **Software** | pynab (`nabd` daemon + web config) |
 
 ### Services
@@ -70,7 +72,7 @@ ssh nabaztag     # or: ssh pi
        IdentityFile ~/.ssh/id_ed25519
    ```
 
-**User:** `pi` · password login also still works as a fallback.
+**User:** `pi` (key-based login).
 
 ## Useful commands
 
