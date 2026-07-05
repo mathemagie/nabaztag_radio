@@ -7,6 +7,18 @@ Raspberry Pi. It's a Spotify Connect speaker whose ears wiggle to the music.
 📖 **Project site:** https://mathemagie.github.io/nabaztag-spotify/ — an illustrated
 walkthrough of how it all works.
 
+<p align="center">
+  <img src="web/media/rabbit.jpg" alt="A Nabaztag rabbit" width="320"><br>
+  <sub>Photo: <a href="https://commons.wikimedia.org/wiki/File:Nabaztag-IMG_7036.jpg">Rama</a>,
+  Wikimedia Commons · <a href="https://creativecommons.org/licenses/by-sa/2.0/fr/deed.en">CC BY-SA 2.0 FR</a></sub>
+</p>
+
+<!-- Ear-wiggle video: once you have a clip, either commit web/media/wiggle.mp4 and
+     reference it here, or drag-drop the MP4 into a PR/issue on github.com to get a
+     hosted user-attachments URL and paste it on its own line below. GitHub renders
+     it as a player. -->
+
+
 ## What's in this repo
 
 | File | Runs on | What it does |
