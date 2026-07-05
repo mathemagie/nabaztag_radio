@@ -1,7 +1,20 @@
 # Nabaztag Radio 🐰📻
 
-Notes and access details for my Nabaztag rabbit, revived with the open-source
-[**pynab**](https://github.com/nabaztag2018/pynab) project on a Raspberry Pi.
+Notes, access details, and helper scripts for my Nabaztag rabbit, revived with
+the open-source [**pynab**](https://github.com/nabaztag2018/pynab) project on a
+Raspberry Pi. It's a Spotify Connect speaker whose ears wiggle to the music.
+
+## What's in this repo
+
+| File | Runs on | What it does |
+|------|---------|--------------|
+| `test_audio.py` | Pi | Play a test tone/sweep through the sound HAT |
+| `play_mp3.sh` | Mac | Convert an MP3 and play it on the Pi |
+| `wiggle_ears.py` | Pi | Wiggle the ears via the nabd protocol |
+| `on_song_change.sh` | Pi | spotifyd hook that triggers the ear wiggle |
+
+The scripts are deployed to the Pi's home dir (`~`); this repo is the
+source-of-truth backup. See each section below for details.
 
 ## The device
 
@@ -28,10 +41,10 @@ système, Mise à jour, Aide** and includes reboot/shutdown buttons under
 
 ## SSH access
 
-Passwordless key login is configured. Connect with:
+Passwordless key login is configured. Two aliases point at the same Pi:
 
 ```bash
-ssh nabaztag
+ssh nabaztag     # or: ssh pi
 ```
 
 ### How it was set up
