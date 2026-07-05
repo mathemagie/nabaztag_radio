@@ -111,6 +111,20 @@ ssh nabaztag 'journalctl -u spotifyd -f'
 Companion terminal player: [`radio_spotify_lego`](../radio_spotify_lego)
 (deployed to `~/radio_spotify_lego` on the Pi; launch with its `run-on-pi.sh`).
 
+## Ear wiggle on track change
+
+The ears twitch a little every time the music changes while playing through the
+Nabaztag (spotifyd).
+
+- **`wiggle_ears.py`** (Pi: `~/wiggle_ears.py`) — nudges the ears via the nabd
+  protocol (`127.0.0.1:10543`, `{"type":"ears","left":X,"right":Y}`).
+- **`on_song_change.sh`** (Pi: `~/on_song_change.sh`) — spotifyd hook; fires the
+  wiggle only on `change`/`start`/`play` events (not stop/pause).
+- Wired via `on_song_change_hook = "/home/pi/on_song_change.sh"` in
+  `/etc/spotifyd.conf`.
+
+Test it manually: `ssh pi '~/wiggle_ears.py'`
+
 ## Notes & TODO
 
 - Raspbian **Buster is end-of-life** — no more security updates. Consider
