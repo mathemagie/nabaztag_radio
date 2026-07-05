@@ -73,6 +73,44 @@ ssh nabaztag 'sudo reboot'
 ssh nabaztag 'sudo shutdown -h now'
 ```
 
+## Audio
+
+The rabbit has a **tagtagtag WM8960 sound HAT** (ALSA card 0). `aplay` plays
+WAV; there's no MP3 decoder on the Pi (Buster's `mpg123` is uninstallable —
+see below), so MP3s are converted to WAV first.
+
+- **`test_audio.py`** (on the Pi at `~/test_audio.py`) — stdlib-only tone
+  generator. `python3 ~/test_audio.py --sweep`
+- **`play_mp3.sh`** (run from the Mac) — converts an MP3 with `afconvert`,
+  copies it over, and plays it: `./play_mp3.sh ~/Downloads/song.mp3`
+
+Mixer levels (Speaker/Headphone/PCM) are raised, unmuted, and saved with
+`alsactl store`.
+
+## Spotify Connect (spotifyd)
+
+The Pi is a Spotify Connect speaker named **Nabaztag**, so music plays through
+its HAT.
+
+- **Daemon:** `spotifyd` **v0.3.3 armv6-slim** — the newest build that runs on
+  the Pi Zero W (armv6, glibc 2.28). Newer spotifyd needs glibc ≥2.29; raspotify
+  needs libc6 ≥2.31 / systemd ≥247 — all too new for Buster.
+- **Binary:** `/usr/local/bin/spotifyd` · **Config:** `/etc/spotifyd.conf`
+  (outputs to `plughw:CARD=tagtagtagsound`) · **Service:** `spotifyd.service`
+  (enabled, auto-starts).
+- **Auth:** zeroconf/discovery (no stored password — Spotify killed password
+  auth for old librespot). Activate it **once** from a first-party Spotify app
+  on the same Wi-Fi: Connect menu → **Nabaztag**. After that it also appears in
+  LEGO Radio's device list (`d`).
+
+```bash
+ssh nabaztag 'systemctl status spotifyd'
+ssh nabaztag 'journalctl -u spotifyd -f'
+```
+
+Companion terminal player: [`radio_spotify_lego`](../radio_spotify_lego)
+(deployed to `~/radio_spotify_lego` on the Pi; launch with its `run-on-pi.sh`).
+
 ## Notes & TODO
 
 - Raspbian **Buster is end-of-life** — no more security updates. Consider
