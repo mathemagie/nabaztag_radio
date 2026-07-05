@@ -11,13 +11,20 @@ walkthrough of how it all works.
 
 | File | Runs on | What it does |
 |------|---------|--------------|
-| `test_audio.py` | Pi | Play a test tone/sweep through the sound HAT |
-| `play_mp3.sh` | Mac | Convert an MP3 and play it on the Pi |
-| `wiggle_ears.py` | Pi | Wiggle the ears via the nabd protocol |
-| `on_song_change.sh` | Pi | spotifyd hook that triggers the ear wiggle |
+| `src/test_audio.py` | Pi | Play a test tone/sweep through the sound HAT |
+| `src/play_mp3.sh` | Mac | Convert an MP3 and play it on the Pi |
+| `src/wiggle_ears.py` | Pi | Wiggle the ears via the nabd protocol |
+| `src/on_song_change.sh` | Pi | spotifyd hook that triggers the ear wiggle |
 
 The scripts are deployed to the Pi's home dir (`~`); this repo is the
 source-of-truth backup. See each section below for details.
+
+### Repository layout
+
+```
+src/    helper scripts (deployed to the Pi's ~ or run from the Mac)
+web/    the project site published to GitHub Pages
+```
 
 ## The device
 
@@ -97,7 +104,7 @@ see below), so MP3s are converted to WAV first.
 - **`test_audio.py`** (on the Pi at `~/test_audio.py`) — stdlib-only tone
   generator. `python3 ~/test_audio.py --sweep`
 - **`play_mp3.sh`** (run from the Mac) — converts an MP3 with `afconvert`,
-  copies it over, and plays it: `./play_mp3.sh ~/Downloads/song.mp3`
+  copies it over, and plays it: `./src/play_mp3.sh ~/Downloads/song.mp3`
 
 Mixer levels (Speaker/Headphone/PCM) are raised, unmuted, and saved with
 `alsactl store`.
