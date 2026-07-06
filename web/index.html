@@ -204,6 +204,44 @@
     </figure>
   </section>
 
+  <!-- 02b · SPOTIFYD -->
+  <section id="spotifyd">
+    <h2><small>The daemon</small>What <code>spotifyd</code> actually is</h2>
+    <p class="muted"><a href="https://github.com/Spotifyd/spotifyd"><code>spotifyd</code></a>
+      is an open-source, headless <b>Spotify Connect</b> client — a lightweight Rust
+      daemon (built on <a href="https://github.com/librespot-org/librespot">librespot</a>)
+      that turns the rabbit into a speaker your Spotify app can stream to. No browser,
+      no GUI, no keyboard: it just sits on the Pi waiting to be picked.</p>
+    <dl class="hood">
+      <div>
+        <dt>How it's picked</dt>
+        <dd>It advertises itself over the LAN with <b>zeroconf</b> discovery, so it
+          pops up in any first-party Spotify app's Connect menu as <b>Nabaztag</b>.
+          Activate it once — no password stored, since Spotify dropped password auth
+          for old librespot.</dd>
+      </div>
+      <div>
+        <dt>Where it lives</dt>
+        <dd>Binary at <code>/usr/local/bin/spotifyd</code>, config at
+          <code>/etc/spotifyd.conf</code> (audio out to
+          <code>plughw:CARD=tagtagtagsound</code>), run as the
+          <code>spotifyd.service</code> systemd unit that auto-starts on boot.</dd>
+      </div>
+      <div>
+        <dt>The wiggle hook</dt>
+        <dd>Its <code>on_song_change_hook</code> option runs a script on every
+          play/track-change event — that's the thread we pull to make the ears
+          dance via <b>nabd</b>.</dd>
+      </div>
+      <div>
+        <dt>Why this exact build</dt>
+        <dd>The prebuilt <code>v0.3.3 armv6-slim</code> release is the newest that
+          runs on the Pi Zero&nbsp;W's ancient ARMv6 + glibc&nbsp;2.28. Newer builds
+          and raspotify all need libraries too fresh for end-of-life Buster.</dd>
+      </div>
+    </dl>
+  </section>
+
   <!-- Video · Facebook Reel embed -->
   <section id="watch">
     <h2><small>See it in action</small>The ears, live</h2>
