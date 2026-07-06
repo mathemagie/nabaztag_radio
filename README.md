@@ -126,9 +126,12 @@ Mixer levels (Speaker/Headphone/PCM) are raised, unmuted, and saved with
 The Pi is a Spotify Connect speaker named **Nabaztag**, so music plays through
 its HAT.
 
-- **Daemon:** `spotifyd` **v0.3.3 armv6-slim** — the newest build that runs on
-  the Pi Zero W (armv6, glibc 2.28). Newer spotifyd needs glibc ≥2.29; raspotify
-  needs libc6 ≥2.31 / systemd ≥247 — all too new for Buster.
+- **Daemon:** [`spotifyd`](https://github.com/Spotifyd/spotifyd) — the prebuilt
+  **v0.3.3 `armv6-slim`** release binary (downloaded from the project's GitHub
+  releases, *not* compiled on the Pi — there's no Rust toolchain installed there).
+  It's the newest build that runs on the Pi Zero W (armv6, glibc 2.28). Newer
+  spotifyd needs glibc ≥2.29; raspotify needs libc6 ≥2.31 / systemd ≥247 — all
+  too new for Buster.
 - **Binary:** `/usr/local/bin/spotifyd` · **Config:** `/etc/spotifyd.conf`
   (outputs to `plughw:CARD=tagtagtagsound`) · **Service:** `spotifyd.service`
   (enabled, auto-starts).
@@ -172,3 +175,4 @@ Test it manually: `ssh pi '~/wiggle_ears.py'`
 
 - pynab project: https://github.com/nabaztag2018/pynab
 - pynab docs: https://github.com/nabaztag2018/pynab/wiki
+- spotifyd: https://github.com/Spotifyd/spotifyd

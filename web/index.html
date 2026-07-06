@@ -183,8 +183,9 @@
   <!-- 02 · HOW -->
   <section id="how">
     <h2><small>How it works</small>Sound in, dance out</h2>
-    <p class="muted">Music streams over Wi-Fi to <code>spotifyd</code>, which plays it
-      through the sound HAT:</p>
+    <p class="muted">Music streams over Wi-Fi to
+      <a href="https://github.com/Spotifyd/spotifyd"><code>spotifyd</code></a>,
+      which plays it through the sound HAT:</p>
     <div class="flow">
       <div class="node"><div class="ico">📱</div><div class="t">Spotify app</div><div class="s">picks “Nabaztag”</div></div>
       <div class="arrow">→</div>
@@ -222,8 +223,9 @@
     <dl class="hood">
       <div>
         <dt>An old, tiny CPU</dt>
-        <dd>The Pi Zero W is ARMv6 with glibc 2.28, so it runs the exact
-          <code>spotifyd v0.3.3 armv6-slim</code> build — anything newer won't start.</dd>
+        <dd>The Pi Zero W is ARMv6 with glibc 2.28, so it runs the exact prebuilt
+          <a href="https://github.com/Spotifyd/spotifyd"><code>spotifyd v0.3.3 armv6-slim</code></a>
+          release binary — downloaded, not compiled on the Pi — and anything newer won't start.</dd>
       </div>
       <div>
         <dt>No MP3 decoder</dt>
